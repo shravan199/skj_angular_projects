@@ -1,0 +1,35 @@
+<h2>********* Hi Welcome to Angular World **********</h2>
+
+
+<div>
+
+  <a routerLink='covid-status' target="_blank">Click here to know Covid Status in India</a>
+  <router-outlet></router-outlet>
+</div>
+<br>
+<covid-case-in-india></covid-case-in-india>
+<weather></weather>
+<br>
+{{pageHeader}}
+<br> <br>
+<button class='colorClass' [ngClass]='addClasses()'>My Button 1</button>
+<br><br>
+<button style='color:red' [ngStyle]="addStyles()">My Button 2</button>
+<br><br>
+<button (click)="onClick()">Click me</button>
+<br /><br />
+Name : <input [(ngModel)]='name'>
+<br><br />
+You entered : {{name}}
+<br /><br />
+
+<my-employee></my-employee>
+<br /> <br />
+<list-employee></list-employee>
+
+<h2>Life cycle Hoook Example</h2>
+Your Text : <input type='text' [(ngModel)]='userText' />
+<br><br>
+Your Text 2: <input type="text" [(ngModel)]='userText2' />
+<br /><br />
+<life-cycle-hook-example [simpleInput]="userText" [simpleInput2]='userText2'></life-cycle-hook-example>

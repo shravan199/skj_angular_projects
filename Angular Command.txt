@@ -1,0 +1,13 @@
+ng new myProject --skip-install -d'7
+ng g m modules/employee -m=app -d
+ng g component nameComponent --module=app.module.ts -d
+ng g s services/testservice --skipTests=true -d
+
+To generate multiple projects
+ng new my-workspace --create-application false -d
+cd my-workspace
+ng generate application my-first-app -d
+ng generate library my-lib -d
+46-524ndows Shift + Alt + F.4
+On macOS Shift + Option + F.
+On Linux Ctrl + Shift + I./

@@ -1,0 +1,130 @@
+<h5 class="pt-1"> <strong>Forecast Weather Details:</strong> </h5>
+
+<div class="row mt-4">
+    
+    <div *ngIf="forecastObj.forecastday;else other_content">
+        <table class="table table-striped table-bordered table-responsive">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th *ngFor="let forecastday of forecastObj.forecastday">
+                        <h5>{{forecastday.date}}</h5>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th> Sunrise | Sunset </th>
+                    <td *ngFor="let forecastday of forecastObj.forecastday">
+                        {{forecastday.astro.sunrise}} <b>|</b>
+                        {{forecastday.astro.sunset}}
+                    </td>
+                </tr>
+
+                <tr>
+                    <th> Moonrise | Moonset </th>
+                    <td *ngFor="let forecastday of forecastObj.forecastday">
+                        {{forecastday.astro.moonrise}} <b>|</b>
+                        {{forecastday.astro.moonset}}
+                    </td>
+                </tr>
+                <tr>
+                    <th> Min Temp </th>
+                    <td *ngFor="let forecastday of forecastObj.forecastday">
+                        {{forecastday.day.mintemp_c}} ℃ <b>|</b> {{forecastday.day.mintemp_f}} ℉
+                    </td>
+                </tr>
+                <tr>
+                    <th> Avg Temp </th>
+                    <td *ngFor="let forecastday of forecastObj.forecastday">
+                        {{forecastday.day.avgtemp_c}} ℃ <b>|</b> {{forecastday.day.avgtemp_f}} ℉
+                    </td>
+                </tr>
+                <tr>
+                    <th> Max Temp </th>
+                    <td *ngFor="let forecastday of forecastObj.forecastday">
+                        {{forecastday.day.maxtemp_c}} ℃ <b>|</b> {{forecastday.day.maxtemp_f}} ℉
+                    </td>
+                </tr>
+                <tr>
+                    <th style="vertical-align: middle;">Weather Condtion </th>
+                    <td *ngFor="let forecastday of forecastObj.forecastday" class="no-wrap">
+                        {{forecastday.day.condition.text}} <br>
+                        <img src="{{forecastday.day.condition.icon}}">
+                    </td>
+                </tr>
+                <tr>
+                    <th> Avg Humidity </th>
+                    <td *ngFor="let forecastday of forecastObj.forecastday">
+                        {{forecastday.day.avghumidity}}
+                    </td>
+                </tr>
+                <tr>
+                    <th> Avg Wind </th>
+                    <td *ngFor="let forecastday of forecastObj.forecastday">
+                        {{forecastday.day.avgvis_km}} km/h <b>|</b>
+                        {{forecastday.day.avgvis_miles}} mp/h
+                    </td>
+                </tr>
+                <!-- <tr>
+                        <th> Max Wind </th>
+                        <td *ngFor="let forecastday of forecastObj.forecastday">
+                            {{forecastday.day.maxwind_kph}} km/h <b>|</b>
+                             {{forecastday.day.maxwind_mph}} mp/h
+                        </td>
+                    </tr> -->
+                <tr>
+                    <th> Pressure</th>
+                    <td *ngFor="let forecastday of forecastObj.forecastday">
+                        {{forecastday.day.totalprecip_in}} in <b>|</b>
+                        {{forecastday.day.totalprecip_mm}} mm
+                    </td>
+                </tr>
+                <!-- <tr>
+                    <th> Time</th>
+                    <td *ngFor="let forecastdayObj of forecastObj.forecastday">
+                        <ng-container *ngFor="let hour of forecastdayObj.hour">
+                            {{hour.time}},
+                        </ng-container>
+                    </td>
+                </tr>
+                <tr>
+                    <th> Chance of rain</th>
+                    <td *ngFor="let forecastdayObj of forecastObj.forecastday">
+                        <ng-container *ngFor="let hour of forecastdayObj.hour">
+                            {{hour.chance_of_rain}},
+                        </ng-container>
+                    </td>
+                </tr>
+                <tr>
+                    <th> Chance of snow</th>
+                    <td *ngFor="let forecastdayObj of forecastObj.forecastday">
+                        <ng-container *ngFor="let hour of forecastdayObj.hour">
+                            {{hour.chance_of_snow}},
+                        </ng-container>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Is day?</th>
+                    <td *ngFor="let forecastdayObj of forecastObj.forecastday">
+                        <ng-container *ngFor="let hour of forecastdayObj.hour">
+                            {{hour.is_day}},
+                        </ng-container>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Is day?</th>
+                    <td *ngFor="let forecastdayObj of forecastObj.forecastday">
+                        <ng-container *ngFor="let hour of forecastdayObj.hour">
+                            {{hour.is_day}},
+                        </ng-container>
+                    </td>
+                </tr> -->
+
+
+            </tbody>
+        </table>
+    </div>
+
+    <ng-template #other_content>Other content here...</ng-template>
+</div>

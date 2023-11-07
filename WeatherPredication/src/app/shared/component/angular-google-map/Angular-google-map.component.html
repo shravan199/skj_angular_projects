@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-md-12">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" style="width: 100%"
+            [draggableCursor]="'url(http://www.example.com/icon.png), auto;'"
+            [draggingCursor]="'url(http://www.example.com/icon.png), auto;'"
+            (mapReady)="mapReady($event)"
+            (centerChange)="onCenterChange()">
+            <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true" 
+            [markerClickable]="true" >
+             <agm-info-window #agmInfoWindowElementRef [disableAutoPan]="false" [maxWidth]="820">
+                <current-weather #currentWeatherEleRef [latLngLitral]="getLatLng()"></current-weather>
+                <forecast-weather #forecastWeatherEleRef [latLngLitral]="getLatLng()" ></forecast-weather>
+             </agm-info-window>
+            </agm-marker>
+        </agm-map>
+    </div>
+
+    <!-- <div class="col-md-6">
+        <current-weather #currentWetherEleRef [latLngLitral]="getLatLng()"></current-weather>
+    </div> -->
+</div>

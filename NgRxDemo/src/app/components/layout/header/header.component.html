@@ -1,0 +1,16 @@
+<mat-toolbar class="menuItem" color="primary" style="height:75px; background-color:rgb(194, 116, 28)">
+    <div fxLayoutAlign="start center" fxFlex="100%" fxHide.xs>
+        <button mat-button routerLink="/users" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="selected">
+            Users
+        </button>
+        <button class="menuItem" mat-button routerLink="/post" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="selected">
+            Posts
+        </button>
+        <button class="menuItem" mat-button routerLink="/post2" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="selected">
+            Posts 2
+        </button>
+        <button class="menuItem" mat-button routerLink="/post3" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="selected">
+            Posts 3
+        </button>
+    </div> 
+</mat-toolbar>

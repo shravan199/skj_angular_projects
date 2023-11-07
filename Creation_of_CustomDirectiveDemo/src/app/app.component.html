@@ -1,0 +1,78 @@
+<div class="container mt-3">
+  <h2 appBackgroundColor> Demo: How to share data among components in Angular </h2>
+
+  <br>
+  <app-sender></app-sender>
+
+  <app-receiver></app-receiver>
+
+  <app-sender2></app-sender2>
+
+  <button class="btn btn-primary"> Save</button>
+
+  <br>
+  <br>
+
+  <label>{{'selectLanguage' | translate}}</label>
+  <br>
+  <br>
+  <select [(ngModel)]="language" (change)="onChange($event)">
+    <option value="">Select</option>
+    <option value="en-US">English</option>
+    <option value="hn-IN">Hindi</option>
+  </select>
+
+  <b> Hello {{ name }} </b>
+
+  <br><br>
+
+  <label>{{'you-have-selected' | translate}} : <b>{{languageText}}</b></label>
+
+  <br><br>
+  <app-dom-manipulation></app-dom-manipulation>
+  <h2>ViewChild Example with property {{ '{' }}static: true/false {{ '}' }}</h2>
+
+  <p> Value of childComponent in parent's view template is: {{childComponent.count}} </p>
+
+  <h3><b>Note: </b> static Determines when the query is resolved.
+    True is when the view is initialized (before the first change detection) for the first time.
+    False if you want it to be resolved after every change detection</h3>
+  <br>
+  <app-view-child-and-view-childern-query-list-demo></app-view-child-and-view-childern-query-list-demo>
+
+
+  <br><br>
+  <button class="btn btn-primary" (click)="incrementCount()"> Increment</button><br><br>
+  <button class="btn btn-primary" (click)="decrementCount()"> Decrement</button>
+
+  <br> <br>
+  <h1> Ohter part</h1>
+  <div> Value of "showCounter" variable is <b> {{showCounter}}</b></div>
+
+  <input type="checkbox" id="showCounter" name="showCounter" [(ngModel)]="showCounter">
+  <br>
+  <ng-container *ngIf="showCounter">
+    <button class="btn btn-primary" (click)="incrementCount()"> Increment</button><br><br>
+    <button class="btn btn-primary" (click)="decrementCount()"> Decrement</button>
+
+    <br><br>
+    <app-view-child-and-view-childern-query-list-demo></app-view-child-and-view-childern-query-list-demo>
+  </ng-container>
+
+  <h1>ViewChildren Example</h1>
+  <div class="row">
+    <div class="col-12">
+      <input name="firstName" [(ngModel)]="firstName">
+      <input name="midlleName" [(ngModel)]="middleName">
+      <input name="lastName" [(ngModel)]="lastName">
+    </div>
+
+    <ng-container *ngFor="let elment of modelRefList; let indx=index; let isFirst=first; let isLast=last;
+    let isEven=even; let isOdd=odd">
+      <div>
+        {{indx}}: {{elment.value}} isFrist: {{isFirst}}, isLast: {{isLast}}, isEven: {{isEven}}, isOdd:{{isOdd}}
+      </div>
+    </ng-container>
+  </div>
+  <br><br>
+</div>

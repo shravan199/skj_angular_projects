@@ -1,0 +1,96 @@
+<!-- <h2>Get current weather of your city</h2> -->
+<div class="row">
+    <!-- <form [formGroup]="currentWeatherForm" (ngSubmit)="onSubmit()">
+        <legend class="float-none w-auto px-3"> Get weather of your city</legend>
+        <div class="form-group">
+            <select formControlName="city" class="ms-3">
+                <option>Select City: </option>
+                <option *ngFor="let city of listOfCity">{{city}}</option>
+            </select>
+            <div *ngIf="currentWeatherForm.get('city').touched ? true : false && currentWeatherForm.get('city').invalid ? true: false" class="alert alert-danger">
+                    <div *ngIf="currentWeatherForm.get('city').errors ? currentWeatherForm.get('city').errors['required'] ? false">City is required.</div>
+                </div> 
+
+            <button type="submit" class="btn-primary ms-3" [disabled]="currentWeatherForm.invalid">Submit</button>
+        </div>
+    </form> -->
+    <h5 class="pt-1"> <strong>Current Weather Details:</strong> </h5>
+
+    <div class="row mt-4">
+        <div class="col-md-6" *ngIf="currentWeatherObj.temp_c">
+            <table class="table table-striped table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <h5>Weather Details</h5>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Temprature</th>
+                        <td>{{currentWeatherObj.temp_c}} ℃ <b>|</b> {{currentWeatherObj.temp_f}} ℉</td>
+                    </tr>
+                    <!-- <tr>
+                    <th>Code</th>
+                    <td>{{currentWeatherObj.condition.code}}</td>
+                </tr> -->
+                    <tr>
+                        <th style="vertical-align: middle;">Weather Condition</th>
+                        <td class="text-nowrap"> {{currentWeatherObj.condition.text}}
+                            <br><img src="{{currentWeatherObj.condition.icon}}">
+                        </td>
+                    </tr>
+                    
+                    <!-- <tr *ngIF="currentWeatherObj.condition.url">
+                    <th>URL</th>
+                    <td>{{currentWeatherObj.condition.url}}</td>
+                </tr> -->
+                    <tr>
+                        <th>Wind speed</th>
+                        <td>{{currentWeatherObj.wind_kph}} km/h <b>|</b> {{currentWeatherObj.wind_mph}} mp/h
+                            {{currentWeatherObj.wind_dir}}</td>
+                    </tr>
+                    <tr>
+                        <th>Pressure</th>
+                        <td>{{currentWeatherObj.pressure_mb}} mb <b>|</b> {{currentWeatherObj.pressure_in}} in
+                        </td>
+                    </tr>
+                    <!-- <tr>
+                    <th>Local time when the real data was updated</th>
+                    <td>{{currentWeatherObj.last_updated}}</td>
+                </tr> -->
+                    <!-- <tr>
+                    <th>Local time when the real time data was updated in unix time</th>
+                    <td>{{currentWeatherObj.last_updated_epoch}}</td>
+                </tr> -->
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6" *ngIf="locationObj.name">
+            <table class="table table-striped table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <h5>Locaion Details</h5>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>City</th>
+                        <td>{{locationObj.name}}</td>
+                    </tr>
+                    <tr>
+                        <th>State/Region</th>
+                        <td>{{locationObj.region}}</td>
+                    </tr>
+                    <tr>
+                        <th>Country</th>
+                        <td>{{locationObj.country}}</td>
+                    </tr>
+                    <tr>
+                        <th>Local Time</th>
+                        <td> {{locationObj.localtime}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

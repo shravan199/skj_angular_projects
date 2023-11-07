@@ -1,0 +1,57 @@
+<div class="container mt-3">
+  <h1> Welcome to Web Development World</h1>
+  <h2>Simple Button Demo</h2>
+  <app-btn>Click Me</app-btn>
+  <app-btn><b>Submit</b></app-btn>
+
+  <h2>Button Demo With ng-content</h2>
+  <app-fancy-btn>Click Me</app-fancy-btn>
+  <app-fancy-btn><b>Submit</b></app-fancy-btn>
+
+  <h2>Multiple Projections using ng-content</h2>
+  <app-card>
+    <header>
+      <h1>Angular</h1>
+    </header>
+
+    <body>One framework. Mobile & desktop.</body>
+    <footer><b>Super-powered by Google </b></footer>
+  </app-card>
+
+  <app-card>
+    <header>
+      <h1 style="color:red;">React</h1>
+    </header>
+
+    <body>A JavaScript library for building user interfaces</body>
+    <footer><b>Facebook Open Source </b></footer>
+  </app-card>
+
+  <br>
+  <h2 style="color:blue">Life Cycle Hook Demo</h2>
+
+  Reference :
+  <a href="https://www.tektutorialshub.com/angular/angular-component-life-cycle-hooks/#create-the-hook-method">Angular
+    Life Cycle Hooks</a>
+
+  <h4>Root Component</h4>
+  <br>
+  <label class="label"> Enter Message: </label>
+  <input class="mx-1" type="text" id="message" name="message" [(ngModel)]="message">
+  <br><br>
+  <label class="label"> Enter Content: </label>
+  <input class="mx-1" type="content" id="content" name="message" [(ngModel)]="content">
+  <br><br>
+  <label class="label"> Hide Child: </label>
+  <input class="mx-1" type="checkbox" id="hideChild" name="hideChild" [(ngModel)]="hideChild">
+
+  <br><br>
+  <app-child *ngIf="!hideChild" [message]="message">
+    <!-- Injected Content -->
+    <b> {{ content }} </b>
+  </app-child>
+
+  <h3>Demo: Custom Directive</h3>
+  <p appYellowBackground> I am web develper.</p>
+  <p>I have 5 years of expirence</p>
+</div>

@@ -1,0 +1,24 @@
+<div class="container">
+    <div *ngIf="bsService.isUserLoggedIn$.getValue()">
+        <app-header></app-header>
+
+        <!-- <h1> Demo - Custom Directive</h1>
+        <div appYellowBackgroud> I am a Web Developer</div> <br>
+        <div appYellowBackgroud> I have 5 years of expirence as web developer.</div> -->
+    </div>
+
+    <router-outlet></router-outlet>
+
+
+  
+  <h1>Lazy Load Images</h1>
+  <img [defaultImage]="defaultImage" [lazyLoad]="images" [useSrcset]="true" />
+  <img height="500" width="1000" [lazyLoad]="imageSrc1"> <br><br>
+  <img height="500" width="1000" [lazyLoad]="imageSrc2"><br><br>
+  <img height="500" width="1000" [lazyLoad]="imageSrc3"><br><br>
+  <img height="500" width="1000" [lazyLoad]="imageSrc4"><br><br>
+
+
+
+    <app-footer style="bottom:0; position:fixed;"></app-footer>
+</div>

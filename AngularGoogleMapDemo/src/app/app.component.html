@@ -1,0 +1,61 @@
+<h3> {{title}} </h3>
+<!-- <form>
+  <agm-map style="height: 300px;" [latitude]="lat" [longitude]="lng" [zoom]="zoom" (mapClick)="mapClicked($event)">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
+</form> -->
+<!-- <form>
+  <div class="form-group">
+    <label>Enter address</label>
+    <input type="text" #search type="text" class="form-control" (keydown.enter)="$event.preventDefault()"
+      placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off">
+  </div>
+
+
+  <agm-map [latitude]="lat" [longitude]="long">
+    <agm-marker [latitude]="lat" [longitude]="long" [markerDraggable]="true" (dragEnd)="markerDragEnd($event)">
+    </agm-marker>
+  </agm-map>
+</form> -->
+
+<!-- app.component.html -->
+<form>
+  <div class="form-group">
+    <label>Enter address: </label>
+    <input type="text" #search type="text" class="form-control" placeholder="Search Nearest Location" autocorrect="off"
+      autocapitalize="off" spellcheck="off">
+  </div>
+  <br>
+  <button (click)="zoomIn()">Zoom in</button>
+  <button (click)="zoomOut()">Zoom out</button>
+  <button (click)="logCenter()">Log center</button>
+  <button (click)="addMarker()">Add marker</button>
+  <br>
+  <br>
+  <agm-map [latitude]="lat" [longitude]="long" [zoom]="zoom" [backgroundColor]="backgroundColor"
+   [clickableIcons]="true" [disableDefaultUI]="disableDefaultUI" 
+   [disableDoubleClickZoom]="disableDoubleClickZoom" [gestureHandling]="gestureHandling"
+   [mapDraggable]="true" [scrollwheel]="scrollwheel" [showDefaultInfoWindow]="showDefaultInfoWindow"
+   [tilt]="tilt" [usePanning]="usePanning"
+   [draggableCursor]="'url(http://www.example.com/icon.png), auto;'" 
+   [draggingCursor]="'url(http://www.example.com/icon.png), auto;'" [fitBounds]="fitBounds"
+   [restriction]="restriction" (boundsChange)="boundsChange($event)" (centerChange)="centerChange($event)"
+   (idle)="idle()"
+   (mapReady)="mapReadyHandler($event)" (mapClick)="mapClick($event)" (zoomChange)="zoomChange($event)">
+    <agm-marker #markerElem [latitude]="lat" [longitude]="long" [label]="'S'" [title]="markerTitle"
+      [openInfoWindow]="true" [markerClickable]="true" [markerDraggable]="true" [zIndex]="25"
+       (mapClick)="openInfo(markerElem)" (markerClick)="markerClick($event)" (markerRightClick)="mrkrRightClick()"
+       (mouseOut)="mouseOut($event)" (mouseOver)="mouseOver($event)">
+      <agm-info-window>
+        <p> Info Window </p> {{lat}} , {{long}}
+      </agm-info-window>
+      <agm-bicycling-layer [visible]="true"></agm-bicycling-layer>
+    </agm-marker>
+    <agm-circle [latitude]="lat" [longitude]="long" ></agm-circle>
+  </agm-map>
+</form>
+
+<h5>Address: {{geoLoc}}</h5>
+<div>Latitude: {{lat}}</div>
+<div>Longitude: {{long}}</div>
+<!-- <div>{{mapTypeId}}</div> -->

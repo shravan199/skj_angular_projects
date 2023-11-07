@@ -1,0 +1,17 @@
+
+<div class="container mt-2">
+    <h1>Login Form</h1>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <label class="form-label" for="username"><b> UserName: </b></label>
+            <input type="text" placeholder="Enter username" formControlName="userName" name="username"
+                   class="form-control" style="width:25%">    
+        <label class="form-label" for="password"> <b> Password: </b></label>
+        <input type="password" class="form-control" style="width:25%" placeholder="Enter password" formControlName="password"
+            name="password">
+
+        <button class="btn btn-primary mt-3" type="submit"> <b> Log In </b></button>
+    
+    </form>
+
+</div>

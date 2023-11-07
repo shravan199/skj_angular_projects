@@ -1,0 +1,69 @@
+<employee-count [all]="getTotalEmployeesCount()" [male]="getMaleEmployeesCount()" [female]="getFemaleEmployeesCount()"
+    (countRadioButtonSelectionChanged)="onEmployeeCountRadioButtonChange($event)">
+</employee-count>
+<br /><br />
+<table>
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Annual Salary</th>
+            <th>Date of Birth</th>
+            <th>Index</th>
+            <th> Is First</th>
+            <th>Is Last</th>
+            <th>Is Even</th>
+            <th>Is Odd</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container
+            *ngFor="let employee of employees; trackBy:trackByEmpCode; let i=index; let isFirst = first; let isLast = last; let isEven = even; let isOdd = odd">
+            <tr *ngIf="selectedEmployeeCountRadioButton == 'All' 
+                        || selectedEmployeeCountRadioButton == employee.gender ">
+                <td>{{employee.code | uppercase }}</td>
+                <td>{{employee.name | employeeTitle:employee.gender}}</td>
+                <td>{{employee.gender}}</td>
+                <td>{{employee.annualSalary | currency:'USD':true:'1.3-3'}}</td>
+                <td>{{employee.dateOfBirth | date:'dd/MM/y' }}</td>
+                <td>{{i}}</td>
+                <td>{{isFirst}}</td>
+                <td>{{isLast}}</td>
+                <td>{{isEven}}</td>
+                <td>{{isOdd}}</td>
+            </tr>
+        </ng-container>
+        <tr *ngIf="!employees || employees.length==0">
+            <td colspan="5">
+                No employees to display
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br /><br />
+<button (click)='getEmployees()'>Refresh Employees</button>
+<br><br>
+<h3>JSON string properties</h3>
+<div *ngFor="let property of JSObject">
+    <h5>{{property}}</h5>
+</div>
+<br><br>
+<div *ngFor="let article of articles">
+    <h2>{{article.title}}</h2>
+
+    <p>
+        {{article.description}}
+    </p>
+    <a href="{{article.url}}">Read full article</a>
+</div>
+indiaTopHeading
+<br><br>
+<div *ngFor="let indiaTopHeading of indiaTopHeadings">
+    <h2>{{indiaTopHeading.title}}</h2>
+
+    <p>
+        {{indiaTopHeading.description}}
+    </p>
+    <a href="{{indiaTopHeading.url}}">Read full article</a>
+</div>
